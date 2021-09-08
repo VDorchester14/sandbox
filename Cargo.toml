@@ -9,3 +9,4 @@ edition = "2018"
 [dependencies]
 leaf = {path = "../engine"}
 specs = { version = "0.16.1", features = ["specs-derive"] }
+log = "*"

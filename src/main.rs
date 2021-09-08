@@ -14,35 +14,10 @@ use leaf::core::plugins::components::renderable_component::RenderableComponent;
 use glium::glutin;
 pub struct DisplayWrapper(glium::Display);
 use std::sync::Arc;
+use log::{info};
 
 fn main() {
-    // let mut app: leaf::Application = leaf::Application::create_application();
-    // app.startup();
-    // app.run();
-}
-
-pub struct SceneOne{
-    world: leaf::specs::World,
-}
-
-impl Scene for SceneOne{
-    fn destroy(&mut self){
-
-    }
-    fn activate(&mut self){
-        self.world = World::new();
-        self.world.register::<RenderableComponent>();
-    }
-    fn deactivate(&mut self){
-
-    }
-    fn update(&mut self, dt: f32){
-
-    }
-    fn post_update(&mut self, dt: f32){
-
-    }
-    fn draw(&mut self, frame: &mut glium::Frame){
-
-    }
+    let mut app: leaf::Application = leaf::Application::create_application();
+    app.startup();
+    app.run();
 }
