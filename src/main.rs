@@ -17,10 +17,14 @@ use leaf::core::plugins::components::{
 
 
 use std::sync::Arc;
-use log::{info};
+use log::{
+    info,
+    LevelFilter,
+};
 
 fn main() {
-    let mut app: leaf::Application = leaf::Application::create_application();
+    let log_level = Some(LevelFilter::Info);
+    let mut app: leaf::Application = leaf::Application::create_application(log_level);
     app.startup();
 
     // create a scene and hold the id
@@ -37,6 +41,17 @@ fn main() {
         let scene = &mut scene_manager.get_active_scene().unwrap(); //
         scene.register::<TransformComponent>();
         scene.register::<RenderableComponent>();
+        scene.get_world()
+            .unwrap()
+            .create_entity()
+            .with(
+                RenderableComponent{
+                    vertex_buffer: None,
+                    geometry: None,
+                    initialized: false,
+                }
+            )
+            .build();
     }
 
     app.run();
