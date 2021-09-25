@@ -7,14 +7,18 @@ use leaf::core::scene::scene::{
     Uninitialized,
 };
 use leaf::specs;
-pub use specs::{Builder, Component, ReadStorage, System, VecStorage, World, WorldExt, RunNow};
+pub use leaf::specs::{Builder, Component, ReadStorage, System, VecStorage, World, WorldExt, RunNow};
 
-use leaf::core::rendering;
+use leaf::core::rendering::geometries::{
+    triangle::TriangleGeometry,
+    plane::PlaneGeometry,
+    cube::CubeGeometry,
+};
+use leaf::core::rendering::geometries::geometry::Geometry;
 use leaf::core::plugins::components::{
     renderable_component::RenderableComponent,
     transform_component::TransformComponent,
 };
-
 
 use std::sync::Arc;
 use log::{
@@ -41,16 +45,23 @@ fn main() {
         let scene = &mut scene_manager.get_active_scene().unwrap(); //
         scene.register::<TransformComponent>();
         scene.register::<RenderableComponent>();
+        let geometry = TriangleGeometry::create(0.0, 0.0, 0.0, 0.1);
         scene.get_world()
             .unwrap()
             .create_entity()
-            .with(
-                RenderableComponent{
-                    vertex_buffer: None,
-                    geometry: None,
-                    initialized: false,
-                }
-            )
+            .with(RenderableComponent::create(Box::new(geometry)))
+            .build();
+
+        scene.get_world()
+            .unwrap()
+            .create_entity()
+            .with(RenderableComponent::create(Box::new(PlaneGeometry::create(-0.5, 0.5, 0.0, 0.2))))
+            .build();
+
+        scene.get_world()
+            .unwrap()
+            .create_entity()
+            .with(RenderableComponent::create(Box::new(CubeGeometry::create(0.5, -0.5, 0.0, 0.2))))
             .build();
     }
 
