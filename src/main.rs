@@ -26,6 +26,8 @@ use log::{
     LevelFilter,
 };
 
+use cgmath::{Vector3, Matrix4};
+
 fn main() {
     let log_level = Some(LevelFilter::Info);
     let mut app: leaf::Application = leaf::Application::create_application(log_level);
@@ -38,6 +40,9 @@ fn main() {
         new_scene_id
     };
 
+    //
+    // TODO: take position off of geometry. it should be on transform
+    //
     // set that scene as active. using scope so the scene manager reference gets dropped
     {
         let scene_manager = &mut app.get_scene_manager().unwrap();
@@ -50,18 +55,21 @@ fn main() {
             .unwrap()
             .create_entity()
             .with(RenderableComponent::create(Box::new(geometry)))
+            .with(TransformComponent::create_empty())
             .build();
 
         scene.get_world()
             .unwrap()
             .create_entity()
             .with(RenderableComponent::create(Box::new(PlaneGeometry::create(-0.5, 0.5, 0.0, 0.2))))
+            .with(TransformComponent::create_empty())
             .build();
 
         scene.get_world()
             .unwrap()
             .create_entity()
             .with(RenderableComponent::create(Box::new(CubeGeometry::create(0.5, -0.5, 0.0, 0.2))))
+            .with(TransformComponent::create_empty())
             .build();
     }
 

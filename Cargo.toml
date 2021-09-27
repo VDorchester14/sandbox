@@ -10,3 +10,4 @@ edition = "2018"
 leaf = {path = "../engine"}
 specs = { version = "*", features = ["specs-derive"] }
 log = "*"
+cgmath = "*"
