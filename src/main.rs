@@ -18,6 +18,7 @@ use leaf::core::rendering::geometries::geometry::Geometry;
 use leaf::core::plugins::components::{
     renderable_component::RenderableComponent,
     transform_component::TransformComponent,
+    camera_component::CameraComponent,
 };
 
 use std::sync::Arc;
@@ -50,6 +51,7 @@ fn main() {
         let scene = &mut scene_manager.get_active_scene().unwrap(); //
         scene.register::<TransformComponent>();
         scene.register::<RenderableComponent>();
+        scene.register::<CameraComponent>();
         let geometry = TriangleGeometry::create(0.0, 0.0, 0.0, 0.1);
         scene.get_world()
             .unwrap()
