@@ -1,21 +1,21 @@
-// extern crate leaf;
-// use crate::leaf::Manager;
-use leaf::Manager;
-use leaf::core::scene::scene::{
+// extern crate ember;
+// use crate::ember::Manager;
+use ember::Manager;
+use ember::core::scene::scene::{
     Scene,
     Initialized,
     Uninitialized,
 };
-use leaf::specs;
-pub use leaf::specs::{Builder, Component, ReadStorage, System, VecStorage, World, WorldExt, RunNow};
+use ember::specs;
+pub use ember::specs::{Builder, Component, ReadStorage, System, VecStorage, World, WorldExt, RunNow};
 
-use leaf::core::rendering::geometries::{
+use ember::core::rendering::geometries::{
     triangle::TriangleGeometry,
     plane::PlaneGeometry,
     cube::CubeGeometry,
 };
-use leaf::core::rendering::geometries::geometry::Geometry;
-use leaf::core::plugins::components::{
+use ember::core::rendering::geometries::geometry::Geometry;
+use ember::core::plugins::components::{
     renderable_component::RenderableComponent,
     transform_component::TransformComponent,
     camera_component::CameraComponent,
@@ -30,8 +30,8 @@ use log::{
 use cgmath::{Vector3, Matrix4};
 
 fn main() {
-    let log_level = Some(LevelFilter::Info);
-    let mut app: leaf::Application = leaf::Application::create_application(log_level);
+    let log_level = Some(LevelFilter::Debug);
+    let mut app: ember::Application = ember::Application::create_application(log_level);
     app.startup();
 
     // create a scene and hold the id
