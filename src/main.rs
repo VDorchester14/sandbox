@@ -34,13 +34,13 @@ fn main() {
     let mut app: ember::Application = ember::Application::create_application(log_level);
     app.startup();
 
-    // create a scene and hold the id
+    // // create a scene and hold the id
     let main_scene_id = {
         let scene_manager = &mut app.get_scene_manager().unwrap();
         let new_scene_id = scene_manager.generate_and_register_scene();
         new_scene_id
     };
-
+    
     //
     // TODO: take position off of geometry. it should be on transform
     //
