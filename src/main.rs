@@ -73,6 +73,12 @@ fn main() {
             .with(RenderableComponent::create(Box::new(CubeGeometry::create(0.5, -0.5, 0.0, 0.2))))
             .with(TransformComponent::create_empty())
             .build();
+
+        scene.get_world()
+            .unwrap()
+            .create_entity()
+            .with(CameraComponent::create_default())
+            .build();
     }
 
     app.run();
