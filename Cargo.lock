@@ -3,6 +3,16 @@
 version = 3
 
 [[package]]
+name = "ab_glyph"
+version = "0.2.13"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "61caed9aec6daeee1ea38ccf5fb225e4f96c1eeead1b4a5c267324a63cf02326"
+dependencies = [
+ "ab_glyph_rasterizer",
+ "owned_ttf_parser 0.14.0",
+]
+
+[[package]]
 name = "ab_glyph_rasterizer"
 version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -70,6 +80,12 @@ name = "atom"
 version = "0.3.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c9ff149ed9780025acfdb36862d35b28856bb693ceb451259a7164442f22fdc3"
+
+[[package]]
+name = "atomic_refcell"
+version = "0.1.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "73b5e5f48b927f04e952dedc932f31995a65a0bf65ec971c74436e51bf6e970d"
 
 [[package]]
 name = "atty"
@@ -446,10 +462,54 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9ea835d29036a4087793836fa931b08837ad5e957da9e23886b29586fb9b6650"
 
 [[package]]
+name = "egui"
+version = "0.15.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1c8d416a3343cbfc6f4d17bb1cba46b4d7efecb9ee541967763e0b5e04e5fae7"
+dependencies = [
+ "ahash",
+ "epaint",
+ "nohash-hasher",
+]
+
+[[package]]
+name = "egui_vulkano"
+version = "0.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7606011e9ea06cef4f81fde8baffb6b8d43314ca424b4b3f3c06c4c47c842403"
+dependencies = [
+ "egui",
+ "epaint",
+ "thiserror",
+ "vulkano 0.25.0",
+ "vulkano-shaders 0.25.0",
+]
+
+[[package]]
 name = "either"
 version = "1.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e78d4f1cc4ae33bbfc157ed5d5a5ef3bc29227303d595861deb238fcec4e9457"
+
+[[package]]
+name = "emath"
+version = "0.15.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "24a1aaa922d55da6a2bf32957c3d153e7fb9d52ed8d69777a75092240172eb6e"
+
+[[package]]
+name = "epaint"
+version = "0.15.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "16bb4d3b8bbbd132c99d2a5efec8567e8b6d09b742f758ae6cf1e4b104fe0231"
+dependencies = [
+ "ab_glyph",
+ "ahash",
+ "atomic_refcell",
+ "emath",
+ "nohash-hasher",
+ "parking_lot",
+]
 
 [[package]]
 name = "fnv"
@@ -574,11 +634,13 @@ name = "leaf"
 version = "0.1.0"
 dependencies = [
  "cgmath",
+ "egui",
+ "egui_vulkano",
  "log",
  "simple_logger",
  "specs",
- "vulkano",
- "vulkano-shaders",
+ "vulkano 0.27.1",
+ "vulkano-shaders 0.27.1",
  "vulkano-win",
  "winit",
 ]
@@ -791,6 +853,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "nohash-hasher"
+version = "0.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2bf50223579dc7cdcfb3bfcacf7069ff68243f8c363f62ffa99cf000a6b9c451"
+
+[[package]]
 name = "nom"
 version = "5.1.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -900,7 +968,16 @@ version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9f923fb806c46266c02ab4a5b239735c144bdeda724a50ed058e5226f594cde3"
 dependencies = [
- "ttf-parser",
+ "ttf-parser 0.6.2",
+]
+
+[[package]]
+name = "owned_ttf_parser"
+version = "0.14.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4ef05f2882a8b3e7acc10c153ade2631f7bfc8ce00d2bf3fb8f4e9d2ae6ea5c3"
+dependencies = [
+ "ttf-parser 0.14.0",
 ]
 
 [[package]]
@@ -1064,7 +1141,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "dc7c727aded0be18c5b80c1640eae0ac8e396abf6fa8477d96cb37d18ee5ec59"
 dependencies = [
  "ab_glyph_rasterizer",
- "owned_ttf_parser",
+ "owned_ttf_parser 0.6.0",
 ]
 
 [[package]]
@@ -1252,6 +1329,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "spirv_headers"
+version = "1.5.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1f5b132530b1ac069df335577e3581765995cba5a13995cdbbdbc8fb057c532c"
+dependencies = [
+ "bitflags",
+ "num-traits",
+]
+
+[[package]]
 name = "strsim"
 version = "0.9.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1322,6 +1409,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3e5d7cd7ab3e47dda6e56542f4bbf3824c15234958c6e1bd6aaa347e93499fdc"
 
 [[package]]
+name = "ttf-parser"
+version = "0.14.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4ccbe8381883510b6a2d8f1e32905bddd178c11caef8083086d0c0c9ab0ac281"
+
+[[package]]
 name = "tuple_utils"
 version = "0.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1365,6 +1458,26 @@ dependencies = [
 
 [[package]]
 name = "vulkano"
+version = "0.25.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2e631daf0d54bf36908ccff9f38ced7ff253a327e396ac13503a11401bee8c38"
+dependencies = [
+ "ash",
+ "crossbeam-queue",
+ "fnv",
+ "half",
+ "heck",
+ "indexmap",
+ "lazy_static",
+ "parking_lot",
+ "regex",
+ "shared_library",
+ "smallvec",
+ "vk-parse",
+]
+
+[[package]]
+name = "vulkano"
 version = "0.27.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9b9901caa88a0d312e9c5bbf000a864798ffc23f689463779275427f1aa84d42"
@@ -1389,6 +1502,20 @@ dependencies = [
 
 [[package]]
 name = "vulkano-shaders"
+version = "0.25.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7f45834e124ae0fdc95a358d83f163d9b14e9ec7780d99cd5aecbf4e76b1a67e"
+dependencies = [
+ "num-traits",
+ "proc-macro2",
+ "quote",
+ "shaderc",
+ "spirv_headers",
+ "syn",
+]
+
+[[package]]
+name = "vulkano-shaders"
 version = "0.27.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f416d43d3ce75ae3f407fbce90d4bee54ce64004e755438bb83dbcec8b4c4974"
@@ -1399,7 +1526,7 @@ dependencies = [
  "quote",
  "shaderc",
  "syn",
- "vulkano",
+ "vulkano 0.27.1",
 ]
 
 [[package]]
@@ -1412,7 +1539,7 @@ dependencies = [
  "metal",
  "objc",
  "raw-window-handle 0.3.4",
- "vulkano",
+ "vulkano 0.27.1",
  "winit",
 ]
 
