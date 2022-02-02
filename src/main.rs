@@ -16,6 +16,7 @@ use leaf::core::rendering::geometries::{
 };
 use leaf::core::rendering::geometries::geometry::Geometry;
 use leaf::core::plugins::components::{
+    InputComponent,
     renderable_component::RenderableComponent,
     transform_component::TransformComponent,
     camera_component::CameraComponent,
@@ -52,6 +53,7 @@ fn main() {
         scene.register::<TransformComponent>();
         scene.register::<RenderableComponent>();
         scene.register::<CameraComponent>();
+        scene.register::<InputComponent>();
         let geometry = TriangleGeometry::create(0.0, 0.0, 0.0, 0.1);
         scene.get_world()
             .unwrap()
@@ -78,6 +80,7 @@ fn main() {
             .unwrap()
             .create_entity()
             .with(CameraComponent::create_default())
+            .with(InputComponent::create())
             .build();
     }
 
