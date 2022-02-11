@@ -32,7 +32,7 @@ use log::{
 use cgmath::{Vector3, Matrix4};
 
 fn main() {
-    let log_level = Some(LevelFilter::Info);
+    let log_level = Some(LevelFilter::Debug);
     let mut app: leaf::Application = leaf::Application::create_application(log_level);
     app.startup();
 
