@@ -17,6 +17,7 @@ use leaf::core::rendering::geometries::{
 use leaf::core::rendering::geometries::geometry::Geometry;
 use leaf::core::plugins::components::{
     InputComponent,
+    DebugUiComponent,
     renderable_component::RenderableComponent,
     transform_component::TransformComponent,
     camera_component::CameraComponent,
@@ -36,11 +37,7 @@ fn main() {
     app.startup();
 
     // create a scene and hold the id
-    let main_scene_id = {
-        let scene_manager = &mut app.get_scene_manager().unwrap();
-        let new_scene_id = scene_manager.generate_and_register_scene();
-        new_scene_id
-    };
+    let main_scene_id = app.create_scene();
 
     //
     // TODO: take position off of geometry. it should be on transform
@@ -54,6 +51,8 @@ fn main() {
         scene.register::<RenderableComponent>();
         scene.register::<CameraComponent>();
         scene.register::<InputComponent>();
+        scene.register::<DebugUiComponent>();
+
         let geometry = TriangleGeometry::create(0.0, 0.0, 0.0, 0.1);
 
         scene.get_world()
@@ -77,11 +76,19 @@ fn main() {
             .with(TransformComponent::create_empty())
             .build();
 
+        // camera
         scene.get_world()
             .unwrap()
             .create_entity()
             .with(CameraComponent::create_default())
             .with(InputComponent::create())
+            .build();
+
+        // ui panel
+        scene.get_world()
+            .unwrap()
+            .create_entity()
+            .with(DebugUiComponent::create())
             .build();
     }
 
