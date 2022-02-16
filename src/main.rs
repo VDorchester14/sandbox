@@ -25,14 +25,11 @@ use leaf::core::plugins::components::{
 
 use std::sync::Arc;
 use log::{
-    info,
     LevelFilter,
 };
 
-use cgmath::{Vector3, Matrix4};
-
 fn main() {
-    let log_level = Some(LevelFilter::Debug);
+    let log_level = Some(LevelFilter::Info);
     let mut app: leaf::Application = leaf::Application::create_application(log_level);
     app.startup();
 
