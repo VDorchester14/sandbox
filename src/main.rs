@@ -1,14 +1,9 @@
 // extern crate leaf;
 // use crate::leaf::Manager;
+use std::env;
 use leaf::Manager;
-use leaf::core::scene::scene::{
-    Scene,
-    Initialized,
-    Uninitialized,
-};
-use leaf::specs;
 pub use leaf::specs::{Builder, Component, ReadStorage, System, VecStorage, World, WorldExt, RunNow};
-
+use cgmath::Vector3;
 use leaf::core::rendering::geometries::{
     triangle::TriangleGeometry,
     plane::PlaneGeometry,
@@ -21,15 +16,25 @@ use leaf::core::plugins::components::{
     renderable_component::RenderableComponent,
     transform_component::TransformComponent,
     camera_component::CameraComponent,
+    light_components::DirectionalLightComponent,
 };
 
-use std::sync::Arc;
 use log::{
     LevelFilter,
 };
 
 fn main() {
-    let log_level = Some(LevelFilter::Info);
+    let args: Vec<String> = env::args().collect();
+    let mut log_level = Some(LevelFilter::Info);
+    if args.len() > 1 {
+        if args[1] == "debug"{
+            log_level = Some(LevelFilter::Debug);
+        }else if args[1] == "brooke"{
+            println!("hi brooke");
+        }else{
+            println!("Get fucked that's not a valid log level");
+        }
+    }
     let mut app: leaf::Application = leaf::Application::create_application(log_level);
     app.startup();
 
@@ -49,6 +54,7 @@ fn main() {
         scene.register::<CameraComponent>();
         scene.register::<InputComponent>();
         scene.register::<DebugUiComponent>();
+        scene.register::<DirectionalLightComponent>();
 
         let geometry = TriangleGeometry::create(0.0, 0.0, 0.0, 0.1);
 
@@ -86,6 +92,13 @@ fn main() {
             .unwrap()
             .create_entity()
             .with(DebugUiComponent::create())
+            .build();
+
+        // dir light
+        scene.get_world()
+            .unwrap()
+            .create_entity()
+            .with(DirectionalLightComponent::new(Vector3::new(1.0, 0.0, -1.0), [1.0, 1.0, 1.0]))
             .build();
     }
 
