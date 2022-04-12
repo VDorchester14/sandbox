@@ -17,6 +17,7 @@ use leaf::core::plugins::components::{
     transform_component::TransformComponent,
     camera_component::CameraComponent,
     light_components::DirectionalLightComponent,
+    light_components::AmbientLightingComponent,
 };
 
 use log::{
@@ -55,6 +56,7 @@ fn main() {
         scene.register::<InputComponent>();
         scene.register::<DebugUiComponent>();
         scene.register::<DirectionalLightComponent>();
+        scene.register::<AmbientLightingComponent>();
 
         let geometry = TriangleGeometry::create(0.0, 0.0, 0.0, 0.1);
 
@@ -94,11 +96,11 @@ fn main() {
             .with(DebugUiComponent::create())
             .build();
 
-        // dir light
+        // // dir light
         scene.get_world()
             .unwrap()
             .create_entity()
-            .with(DirectionalLightComponent::new(Vector3::new(1.0, 0.0, -1.0), [1.0, 1.0, 1.0]))
+            .with(AmbientLightingComponent::new([1.0, 1.0, 1.0]))
             .build();
     }
 
