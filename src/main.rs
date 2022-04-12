@@ -102,6 +102,13 @@ fn main() {
             .create_entity()
             .with(AmbientLightingComponent::new([1.0, 1.0, 1.0]))
             .build();
+        
+            // // dir light
+        scene.get_world()
+            .unwrap()
+            .create_entity()
+            .with(DirectionalLightComponent::new(Vector3::new(-1.0, -0.2, -1.0), [1.0, 1.0, 1.0]))
+            .build();
     }
 
     app.run();
