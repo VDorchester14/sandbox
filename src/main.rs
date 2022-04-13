@@ -58,26 +58,38 @@ fn main() {
         scene.register::<DirectionalLightComponent>();
         scene.register::<AmbientLightingComponent>();
 
-        let geometry = TriangleGeometry::create(0.0, 0.0, 0.0, 0.1);
-
         scene.get_world()
             .unwrap()
             .create_entity()
-            .with(RenderableComponent::create(Box::new(geometry)))
+            .with(RenderableComponent::create(Box::new(TriangleGeometry::create(0.0, 2.0, 0.0, 0.1))))
             .with(TransformComponent::create_empty())
             .build();
 
         scene.get_world()
             .unwrap()
             .create_entity()
-            .with(RenderableComponent::create(Box::new(PlaneGeometry::create(-0.5, 0.5, 0.0, 0.2))))
+            .with(RenderableComponent::create(Box::new(PlaneGeometry::create(2.0, 0.0, 0.0, 0.2))))
             .with(TransformComponent::create_empty())
             .build();
 
         scene.get_world()
             .unwrap()
             .create_entity()
-            .with(RenderableComponent::create(Box::new(CubeGeometry::create(0.5, -0.5, 0.0, 0.5))))
+            .with(RenderableComponent::create(Box::new(CubeGeometry::create(0.0, 0.0, -1.5, 0.2))))
+            .with(TransformComponent::create_empty())
+            .build();
+
+        scene.get_world()
+            .unwrap()
+            .create_entity()
+            .with(RenderableComponent::create(Box::new(CubeGeometry::create(0.0, 0.0, -0.25, 0.2))))
+            .with(TransformComponent::create_empty())
+            .build();
+
+        scene.get_world()
+            .unwrap()
+            .create_entity()
+            .with(RenderableComponent::create(Box::new(CubeGeometry::create(0.0, 0.0, 0.0, 1.0))))
             .with(TransformComponent::create_empty())
             .build();
 
@@ -107,7 +119,7 @@ fn main() {
         scene.get_world()
             .unwrap()
             .create_entity()
-            .with(DirectionalLightComponent::new(Vector3::new(-1.0, -0.2, -1.0), [1.0, 1.0, 1.0]))
+            .with(DirectionalLightComponent::new(Vector3::new(-0.5, -0.2, -0.8), [1.0, 1.0, 1.0]))
             .build();
     }
 
