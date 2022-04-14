@@ -42,14 +42,16 @@ fn main() {
     // create a scene and hold the id
     let main_scene_id = app.create_scene();
 
+    app.stage_scene(main_scene_id);
+
     //
     // TODO: take position off of geometry. it should be on transform
     //
     // set that scene as active. using scope so the scene manager reference gets dropped
     {
         let scene_manager = &mut app.get_scene_manager().unwrap();
-        scene_manager.set_active_scene(main_scene_id);
-        let scene = &mut scene_manager.get_active_scene().unwrap(); //
+        // scene_manager.set_active_scene(main_scene_id);
+        let scene = &mut scene_manager.get_staged_scene().unwrap(); //
         scene.register::<TransformComponent>();
         scene.register::<RenderableComponent>();
         scene.register::<CameraComponent>();
@@ -122,7 +124,7 @@ fn main() {
             .with(DirectionalLightComponent::new(Vector3::new(-0.5, -0.2, -0.8), [1.0, 1.0, 1.0]))
             .build();
     }
-
+    app.activate_staged_scene();
     app.run();
 
 }
