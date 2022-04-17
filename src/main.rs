@@ -15,6 +15,7 @@ use leaf::core::plugins::components::{
     DebugUiComponent,
     renderable_component::RenderableComponent,
     transform_component::TransformComponent,
+    TransformUiComponent,
     camera_component::CameraComponent,
     light_components::DirectionalLightComponent,
     light_components::AmbientLightingComponent,
@@ -55,6 +56,7 @@ fn main() {
         // scene_manager.set_active_scene(main_scene_id);
         let scene = &mut scene_manager.get_staged_scene().unwrap(); //
         scene.register::<TransformComponent>();
+        scene.register::<TransformUiComponent>();
         scene.register::<RenderableComponent>();
         scene.register::<CameraComponent>();
         scene.register::<InputComponent>();
@@ -68,64 +70,24 @@ fn main() {
             .unwrap()
             .create_entity()
             .with(TerrainComponent::new(2 as usize))
-            .with(TransformComponent{
-                global_position: Vector3::new(0.0, 0.0, -5.0),
-                ..Default::default()
-            })
+            .with(
+                TransformComponent::start()
+                    .with_global_position(Vector3::new(0.0, 0.0, -0.5))
+                    .build()
+            )
             .build();
 
-        scene.get_world()
-            .unwrap()
-            .create_entity()
-            .with(RenderableComponent::create(Box::new(TriangleGeometry::create())))
-            .with(TransformComponent{
-                global_position: Vector3::new(2.0, 0.0, 0.0),
-                ..Default::default()
-            })
-            .build();
-
-        scene.get_world()
-            .unwrap()
-            .create_entity()
-            .with(RenderableComponent::create(Box::new(PlaneGeometry::create())))
-            .with(TransformComponent{
-                global_position: Vector3::new(0.0, 2.0, 0.0),
-                ..Default::default()
-            })
-            .build();
-
-        scene.get_world()
-            .unwrap()
-            .create_entity()
-            .with(RenderableComponent::create(Box::new(CubeGeometry::create())))
-            .with(TransformComponent{
-                global_position: Vector3::new(0.0, 0.0, 2.0),
-                scale: 0.5,
-                ..Default::default()
-            })
-            .build();
-
-        scene.get_world()
-            .unwrap()
-            .create_entity()
-            .with(RenderableComponent::create(Box::new(CubeGeometry::create())))
-            .with(TransformComponent{
-                global_position: Vector3::new(0.0, 0.0, 0.25),
-                scale: 0.2,
-                ..Default::default()
-            })
-            .build();
-
-        scene.get_world()
-            .unwrap()
-            .create_entity()
-            .with(RenderableComponent::create(Box::new(CubeGeometry::create())))
-            .with(TransformComponent{
-                global_position: Vector3::new(0.0, 0.0, 0.0),
-                scale: 1.0,
-                ..Default::default()
-            })
-            .build();
+        // scene.get_world()
+        //     .unwrap()
+        //     .create_entity()
+        //     .with(RenderableComponent::create(Box::new(CubeGeometry::create())))
+        //     .with(
+        //         TransformComponent::start()
+        //             .with_global_position(Vector3::new(0.0, 0.0, 0.25))
+        //             .with_scale(0.2)
+        //             .build()
+        //     )
+        //     .build();
 
         // camera
         scene.get_world()
