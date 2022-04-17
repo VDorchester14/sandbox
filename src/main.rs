@@ -72,36 +72,54 @@ fn main() {
         scene.get_world()
             .unwrap()
             .create_entity()
-            .with(RenderableComponent::create(Box::new(TriangleGeometry::create(0.0, 2.0, 0.0, 0.1))))
-            .with(TransformComponent::create_empty())
+            .with(RenderableComponent::create(Box::new(TriangleGeometry::create())))
+            .with(TransformComponent{
+                global_position: Vector3::new(2.0, 0.0, 0.0),
+                ..Default::default()
+            })
             .build();
 
         scene.get_world()
             .unwrap()
             .create_entity()
-            .with(RenderableComponent::create(Box::new(PlaneGeometry::create(2.0, 0.0, 0.0, 0.2))))
-            .with(TransformComponent::create_empty())
+            .with(RenderableComponent::create(Box::new(PlaneGeometry::create())))
+            .with(TransformComponent{
+                global_position: Vector3::new(0.0, 2.0, 0.0),
+                ..Default::default()
+            })
             .build();
 
         scene.get_world()
             .unwrap()
             .create_entity()
-            .with(RenderableComponent::create(Box::new(CubeGeometry::create(0.0, 0.0, -1.5, 0.2))))
-            .with(TransformComponent::create_empty())
+            .with(RenderableComponent::create(Box::new(CubeGeometry::create())))
+            .with(TransformComponent{
+                global_position: Vector3::new(0.0, 0.0, 2.0),
+                scale: 0.5,
+                ..Default::default()
+            })
             .build();
 
         scene.get_world()
             .unwrap()
             .create_entity()
-            .with(RenderableComponent::create(Box::new(CubeGeometry::create(0.0, 0.0, -0.25, 0.2))))
-            .with(TransformComponent::create_empty())
+            .with(RenderableComponent::create(Box::new(CubeGeometry::create())))
+            .with(TransformComponent{
+                global_position: Vector3::new(0.0, 0.0, 0.25),
+                scale: 0.2,
+                ..Default::default()
+            })
             .build();
 
         scene.get_world()
             .unwrap()
             .create_entity()
-            .with(RenderableComponent::create(Box::new(CubeGeometry::create(0.0, 0.0, 0.0, 1.0))))
-            .with(TransformComponent::create_empty())
+            .with(RenderableComponent::create(Box::new(CubeGeometry::create())))
+            .with(TransformComponent{
+                global_position: Vector3::new(0.0, 0.0, 0.0),
+                scale: 1.0,
+                ..Default::default()
+            })
             .build();
 
         // camera
