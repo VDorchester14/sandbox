@@ -19,6 +19,7 @@ use leaf::core::plugins::components::{
     light_components::DirectionalLightComponent,
     light_components::AmbientLightingComponent,
     terrain_component::TerrainComponent,
+    terrain_component::TerrainUiComponent,
 };
 
 use log::{
@@ -61,12 +62,16 @@ fn main() {
         scene.register::<DirectionalLightComponent>();
         scene.register::<AmbientLightingComponent>();
         scene.register::<TerrainComponent>();
+        scene.register::<TerrainUiComponent>();
 
         scene.get_world()
             .unwrap()
             .create_entity()
-            .with(TerrainComponent::new(20 as usize))
-            .with(TransformComponent::create_empty())
+            .with(TerrainComponent::new(2 as usize))
+            .with(TransformComponent{
+                global_position: Vector3::new(0.0, 0.0, -5.0),
+                ..Default::default()
+            })
             .build();
 
         scene.get_world()
