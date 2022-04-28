@@ -8,6 +8,6 @@ edition = "2018"
 
 [dependencies]
 leaf = {path = "../ember"}
-specs = { version = "*", features = ["specs-derive"] }
+specs = { version = "*", features = ["specs-derive", "serde"] }
 log = "*"
 cgmath = "*"

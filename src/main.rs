@@ -1,15 +1,14 @@
 // extern crate leaf;
 // use crate::leaf::Manager;
 use std::env;
+use std::collections::HashMap;
 use leaf::Manager;
-pub use leaf::specs::{Builder, Component, ReadStorage, System, VecStorage, World, WorldExt, RunNow};
+pub use leaf::specs::{Builder, Component, ReadStorage, System, VecStorage, World, WorldExt, RunNow, saveload::*};
 use cgmath::Vector3;
-use leaf::core::rendering::geometries::{
-    triangle::TriangleGeometry,
-    plane::PlaneGeometry,
-    cube::CubeGeometry,
+use leaf::core::plugins::components::{
+    GeometryComponent,
+    geometry_component::GeometryType,
 };
-use leaf::core::rendering::geometries::geometry::Geometry;
 use leaf::core::plugins::components::{
     InputComponent,
     DebugUiComponent,
@@ -65,6 +64,7 @@ fn main() {
         scene.register::<AmbientLightingComponent>();
         scene.register::<TerrainComponent>();
         scene.register::<TerrainUiComponent>();
+        scene.register::<GeometryComponent>();
 
         scene.get_world()
             .unwrap()
@@ -77,17 +77,18 @@ fn main() {
             )
             .build();
 
-        // scene.get_world()
-        //     .unwrap()
-        //     .create_entity()
-        //     .with(RenderableComponent::create(Box::new(CubeGeometry::create())))
-        //     .with(
-        //         TransformComponent::start()
-        //             .with_global_position(Vector3::new(0.0, 0.0, 0.25))
-        //             .with_scale(0.2)
-        //             .build()
-        //     )
-        //     .build();
+        scene.get_world()
+            .unwrap()
+            .create_entity()
+            .with(RenderableComponent::create())
+            .with(GeometryComponent::create(GeometryType::Box))
+            .with(
+                TransformComponent::start()
+                    .with_global_position(Vector3::new(0.0, 0.0, 0.25))
+                    .with_scale(0.2)
+                    .build()
+            )
+            .build();
 
         // camera
         scene.get_world()
