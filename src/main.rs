@@ -1,26 +1,11 @@
 // extern crate leaf;
 // use crate::leaf::Manager;
 use std::env;
-use std::collections::HashMap;
+
 use leaf::Manager;
-use cgmath::Vector3;
-use leaf::core::plugins::components::{
-    GeometryComponent,
-    geometry_component::GeometryType,
-};
-use leaf::core::plugins::components::{
-    InputComponent,
-    DebugUiComponent,
-    renderable_component::RenderableComponent,
-    transform_component::TransformComponent,
-    TransformUiComponent,
-    camera_component::CameraComponent,
-    light_components::DirectionalLightComponent,
-    light_components::AmbientLightingComponent,
-    terrain_component::TerrainComponent,
-    terrain_component::TerrainUiComponent,
-    SerializerFlag,
-};
+
+
+
 
 use log::{
     LevelFilter,
