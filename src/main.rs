@@ -4,22 +4,17 @@ use std::env;
 
 use leaf::Manager;
 
-
-
-
-use log::{
-    LevelFilter,
-};
+use log::LevelFilter;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
     let mut log_level = Some(LevelFilter::Info);
     if args.len() > 1 {
-        if args[1] == "debug"{
+        if args[1] == "debug" {
             log_level = Some(LevelFilter::Debug);
-        }else if args[1] == "brooke"{
+        } else if args[1] == "brooke" {
             println!("hi brooke");
-        }else{
+        } else {
             println!("Get fucked that's not a valid log level");
         }
     }
@@ -31,9 +26,8 @@ fn main() {
 
     // app.stage_scene(main_scene_id);
 
-    
     // // TODO: take position off of geometry. it should be on transform
-    
+
     // set that scene as active. using scope so the scene manager reference gets dropped
     // {
     //     let scene_manager = &mut app.get_scene_manager().unwrap();
@@ -102,7 +96,7 @@ fn main() {
     //         .with(AmbientLightingComponent::new([1.0, 1.0, 1.0]))
     //         .marked::<SimpleMarker<SerializerFlag>>()
     //         .build();
-        
+
     //         // // dir light
     //     scene.get_world()
     //         .unwrap()
@@ -112,5 +106,4 @@ fn main() {
     // }
     // app.activate_staged_scene();
     app.run();
-
 }
