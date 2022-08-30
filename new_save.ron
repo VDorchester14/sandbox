@@ -1,0 +1,863 @@
+[
+  (
+    entity: 0,
+    components: [
+      {
+        "type": "leaf::core::plugins::components::ui::app_interface_flag::AppInterfaceFlag",
+        "struct": {},
+      },
+      {
+        "type": "leaf::core::plugins::components::ui::main_menu_component::MainMenuComponent",
+        "struct": {},
+      },
+      {
+        "type": "leaf::core::plugins::components::debug_ui_component::DebugUiComponent",
+        "struct": {
+          "show_profiler": {
+            "type": "bool",
+            "value": false,
+          },
+          "terrain_wireframe": {
+            "type": "bool",
+            "value": false,
+          },
+        },
+      },
+      {
+        "type": "leaf::core::plugins::components::ui::main_menu_component::FileSubMenuComponent",
+        "struct": {
+          "new_project_window": {
+            "type": "bool",
+            "value": false,
+          },
+          "open_project_window": {
+            "type": "bool",
+            "value": false,
+          },
+        },
+      },
+    ],
+  ),
+  (
+    entity: 1,
+    components: [
+      {
+        "type": "leaf::core::plugins::components::transform_component::TransformComponent",
+        "struct": {
+          "global_position": {
+            "type": "ember_math::core::vector3f::Vector3f",
+            "struct": {
+              "x": {
+                "type": "f32",
+                "value": 0.0,
+              },
+              "y": {
+                "type": "f32",
+                "value": 0.0,
+              },
+              "z": {
+                "type": "f32",
+                "value": 0.0,
+              },
+            },
+          },
+          "rotation": {
+            "type": "ember_math::core::matrix4f::Matrix4f",
+            "struct": {
+              "data": {
+                "type": "alloc::vec::Vec<f32>",
+                "list": [
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                ],
+              },
+            },
+          },
+          "scale": {
+            "type": "f32",
+            "value": 1.0,
+          },
+        },
+      },
+      {
+        "type": "leaf::core::plugins::components::terrain_component::TerrainUiComponent",
+        "struct": {},
+      },
+    ],
+  ),
+  (
+    entity: 3,
+    components: [
+      {
+        "type": "leaf::core::plugins::components::transform_component::TransformComponent",
+        "struct": {
+          "global_position": {
+            "type": "ember_math::core::vector3f::Vector3f",
+            "struct": {
+              "x": {
+                "type": "f32",
+                "value": 0.0,
+              },
+              "y": {
+                "type": "f32",
+                "value": 2.0,
+              },
+              "z": {
+                "type": "f32",
+                "value": 0.0,
+              },
+            },
+          },
+          "rotation": {
+            "type": "ember_math::core::matrix4f::Matrix4f",
+            "struct": {
+              "data": {
+                "type": "alloc::vec::Vec<f32>",
+                "list": [
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                ],
+              },
+            },
+          },
+          "scale": {
+            "type": "f32",
+            "value": 0.3,
+          },
+        },
+      },
+      {
+        "type": "leaf::core::plugins::components::renderable_component::RenderableComponent",
+        "struct": {
+          "initialized": {
+            "type": "bool",
+            "value": true,
+          },
+        },
+      },
+      {
+        "type": "leaf::core::plugins::components::geometry_component::GeometryComponent",
+        "struct": {
+          "initialized": {
+            "type": "bool",
+            "value": true,
+          },
+          "geometry_type": {
+            "type": "leaf::core::plugins::components::geometry_component::GeometryType",
+            "value": Box,
+          },
+        },
+      },
+    ],
+  ),
+  (
+    entity: 4,
+    components: [
+      {
+        "type": "leaf::core::plugins::components::transform_component::TransformComponent",
+        "struct": {
+          "global_position": {
+            "type": "ember_math::core::vector3f::Vector3f",
+            "struct": {
+              "x": {
+                "type": "f32",
+                "value": 0.0,
+              },
+              "y": {
+                "type": "f32",
+                "value": 0.0,
+              },
+              "z": {
+                "type": "f32",
+                "value": 2.0,
+              },
+            },
+          },
+          "rotation": {
+            "type": "ember_math::core::matrix4f::Matrix4f",
+            "struct": {
+              "data": {
+                "type": "alloc::vec::Vec<f32>",
+                "list": [
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                ],
+              },
+            },
+          },
+          "scale": {
+            "type": "f32",
+            "value": 0.3,
+          },
+        },
+      },
+      {
+        "type": "leaf::core::plugins::components::renderable_component::RenderableComponent",
+        "struct": {
+          "initialized": {
+            "type": "bool",
+            "value": true,
+          },
+        },
+      },
+      {
+        "type": "leaf::core::plugins::components::geometry_component::GeometryComponent",
+        "struct": {
+          "initialized": {
+            "type": "bool",
+            "value": true,
+          },
+          "geometry_type": {
+            "type": "leaf::core::plugins::components::geometry_component::GeometryType",
+            "value": Box,
+          },
+        },
+      },
+    ],
+  ),
+  (
+    entity: 2,
+    components: [
+      {
+        "type": "leaf::core::plugins::components::transform_component::TransformComponent",
+        "struct": {
+          "global_position": {
+            "type": "ember_math::core::vector3f::Vector3f",
+            "struct": {
+              "x": {
+                "type": "f32",
+                "value": 0.0,
+              },
+              "y": {
+                "type": "f32",
+                "value": 0.0,
+              },
+              "z": {
+                "type": "f32",
+                "value": 0.0,
+              },
+            },
+          },
+          "rotation": {
+            "type": "ember_math::core::matrix4f::Matrix4f",
+            "struct": {
+              "data": {
+                "type": "alloc::vec::Vec<f32>",
+                "list": [
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                ],
+              },
+            },
+          },
+          "scale": {
+            "type": "f32",
+            "value": 1.0,
+          },
+        },
+      },
+      {
+        "type": "leaf::core::plugins::components::renderable_component::RenderableComponent",
+        "struct": {
+          "initialized": {
+            "type": "bool",
+            "value": true,
+          },
+        },
+      },
+      {
+        "type": "leaf::core::plugins::components::geometry_component::GeometryComponent",
+        "struct": {
+          "initialized": {
+            "type": "bool",
+            "value": true,
+          },
+          "geometry_type": {
+            "type": "leaf::core::plugins::components::geometry_component::GeometryType",
+            "value": Box,
+          },
+        },
+      },
+    ],
+  ),
+  (
+    entity: 5,
+    components: [
+      {
+        "type": "leaf::core::plugins::components::transform_component::TransformComponent",
+        "struct": {
+          "global_position": {
+            "type": "ember_math::core::vector3f::Vector3f",
+            "struct": {
+              "x": {
+                "type": "f32",
+                "value": 2.0,
+              },
+              "y": {
+                "type": "f32",
+                "value": 0.0,
+              },
+              "z": {
+                "type": "f32",
+                "value": 0.0,
+              },
+            },
+          },
+          "rotation": {
+            "type": "ember_math::core::matrix4f::Matrix4f",
+            "struct": {
+              "data": {
+                "type": "alloc::vec::Vec<f32>",
+                "list": [
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                ],
+              },
+            },
+          },
+          "scale": {
+            "type": "f32",
+            "value": 0.1,
+          },
+        },
+      },
+      {
+        "type": "leaf::core::plugins::components::renderable_component::RenderableComponent",
+        "struct": {
+          "initialized": {
+            "type": "bool",
+            "value": true,
+          },
+        },
+      },
+      {
+        "type": "leaf::core::plugins::components::geometry_component::GeometryComponent",
+        "struct": {
+          "initialized": {
+            "type": "bool",
+            "value": true,
+          },
+          "geometry_type": {
+            "type": "leaf::core::plugins::components::geometry_component::GeometryType",
+            "value": Box,
+          },
+        },
+      },
+    ],
+  ),
+  (
+    entity: 6,
+    components: [
+      {
+        "type": "leaf::core::plugins::components::light_components::DirectionalLightComponent",
+        "struct": {
+          "direction": {
+            "type": "ember_math::core::vector3f::Vector3f",
+            "struct": {
+              "x": {
+                "type": "f32",
+                "value": 0.5,
+              },
+              "y": {
+                "type": "f32",
+                "value": 0.2,
+              },
+              "z": {
+                "type": "f32",
+                "value": 0.8,
+              },
+            },
+          },
+          "color": {
+            "type": "ember_math::core::vector4f::Vector4f",
+            "struct": {
+              "x": {
+                "type": "f32",
+                "value": 1.0,
+              },
+              "y": {
+                "type": "f32",
+                "value": 1.0,
+              },
+              "z": {
+                "type": "f32",
+                "value": 1.0,
+              },
+              "w": {
+                "type": "f32",
+                "value": 1.0,
+              },
+            },
+          },
+        },
+      },
+    ],
+  ),
+  (
+    entity: 7,
+    components: [
+      {
+        "type": "leaf::core::plugins::components::light_components::AmbientLightingComponent",
+        "struct": {
+          "color": {
+            "type": "ember_math::core::vector3f::Vector3f",
+            "struct": {
+              "x": {
+                "type": "f32",
+                "value": 1.0,
+              },
+              "y": {
+                "type": "f32",
+                "value": 1.0,
+              },
+              "z": {
+                "type": "f32",
+                "value": 1.0,
+              },
+            },
+          },
+        },
+      },
+    ],
+  ),
+  (
+    entity: 8,
+    components: [
+      {
+        "type": "leaf::core::plugins::components::transform_component::TransformComponent",
+        "struct": {
+          "global_position": {
+            "type": "ember_math::core::vector3f::Vector3f",
+            "struct": {
+              "x": {
+                "type": "f32",
+                "value": 0.0,
+              },
+              "y": {
+                "type": "f32",
+                "value": 0.0,
+              },
+              "z": {
+                "type": "f32",
+                "value": 0.0,
+              },
+            },
+          },
+          "rotation": {
+            "type": "ember_math::core::matrix4f::Matrix4f",
+            "struct": {
+              "data": {
+                "type": "alloc::vec::Vec<f32>",
+                "list": [
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 0.0,
+                  },
+                  {
+                    "type": "f32",
+                    "value": 1.0,
+                  },
+                ],
+              },
+            },
+          },
+          "scale": {
+            "type": "f32",
+            "value": 1.0,
+          },
+        },
+      },
+      {
+        "type": "leaf::core::plugins::components::camera_component::CameraComponent",
+        "struct": {
+          "fov": {
+            "type": "f32",
+            "value": 1.57,
+          },
+          "near": {
+            "type": "f32",
+            "value": 0.01,
+          },
+          "far": {
+            "type": "f32",
+            "value": 1000000.0,
+          },
+          "aspect": {
+            "type": "f32",
+            "value": 1.3333334,
+          },
+        },
+      },
+      {
+        "type": "leaf::core::plugins::components::input_component::InputComponent",
+        "struct": {},
+      },
+    ],
+  ),
+]
